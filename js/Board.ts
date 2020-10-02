@@ -1,0 +1,13 @@
+class Board{
+    
+    constructor(){
+
+    }
+
+    DrawBoard(){
+    }
+
+    
+
+
+}
