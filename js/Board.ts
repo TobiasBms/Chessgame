@@ -1,12 +1,17 @@
 class Board{
+   
+    constructor(){ 
+    }
+
+    render(){
+        
+    } 
+
+    update(){
+
+    }
+
     
-    constructor(){
-
-    }
-
-    DrawBoard(){
-    }
-
     
 
 
