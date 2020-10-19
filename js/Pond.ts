@@ -1,4 +1,5 @@
-class Knight extends ChessPiece{
+class Pond extends ChessPiece{
+    
     constructor(isWhite: boolean, isKilled: boolean){
         super(isWhite, isKilled)
     }
@@ -7,8 +8,8 @@ class Knight extends ChessPiece{
     
     getImage()
     {
-        return "./assets/knight.png";
+        return "./assets/pond.jpg";
     }
 
     setWhite(){}
-} 
+}

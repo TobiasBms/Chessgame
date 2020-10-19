@@ -1,35 +1,85 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+/*
+Painting and initializing the board.
+*/
 var Board = /** @class */ (function () {
+    /*
+        Context gets used through the
+        methods to be able to interact with Canvas.
+    */
     function Board(context) {
         this.fields = [];
         this.context = null;
         this.context = context;
     }
-    Board.prototype.createSquare = function (x, y, isBlack, fieldSize) {
+    /*
+        Paints and initialze and image for each square
+        on the board.
+    */
+    Board.prototype.createSquare = function (field, fieldSize) {
+        this.drawBackground(field, fieldSize);
+        this.drawImage(field, fieldSize);
+    };
+    /*
+        Paints a specific image to the field.
+    */
+    Board.prototype.drawImage = function (field, fieldSize) {
+        var _this = this;
+        if (field.chessPiece !== null) {
+            var base_image_1 = new Image();
+            base_image_1.src = field.chessPiece.getImage();
+            base_image_1.onload = function () {
+                _this.context.drawImage(base_image_1, field.x * fieldSize, field.y * fieldSize, fieldSize, fieldSize);
+            };
+        }
+    };
+    /*
+        Paints the background color of the context square.
+    */
+    Board.prototype.drawBackground = function (field, fieldSize) {
         this.context.beginPath();
-        if (isBlack) {
-            this.context.fillStyle = "red";
+        if (field.isBlack) {
+            this.context.fillStyle = "#EAC89E";
         }
         else {
-            this.context.fillStyle = "blue";
+            this.context.fillStyle = "#263549";
         }
-        this.context.strokeRect(x * fieldSize, y * fieldSize, fieldSize, fieldSize);
-        this.context.fillRect(x * fieldSize, y * fieldSize, fieldSize, fieldSize);
+        this.context.fillRect(field.x * fieldSize, field.y * fieldSize, fieldSize, fieldSize);
     };
+    Board.prototype.movePiece = function () {
+    };
+    /*
+        Initialzing the board
+    */
     Board.prototype.createBoard = function (fields, fieldSize) {
         var _this = this;
         fields.forEach(function (row, idy) {
             var straightNumber = idy % 2 === 0;
             row.forEach(function (field, idx) {
-                var isBlack = (straightNumber ? idx + 1 : idx) % 2 === 0;
-                fields[idy][idx].init(idy, idx, isBlack);
-                _this.createSquare(idy, idx, isBlack, fieldSize);
+                field.isBlack = (straightNumber ? idx + 1 : idx) % 2 === 0;
+                field.init();
+                _this.createSquare(field, fieldSize);
             });
         });
     };
     return Board;
 }());
 var ChessPiece = /** @class */ (function () {
-    function ChessPiece() {
+    function ChessPiece(isWhite, isKilled) {
+        this.isWhite = isWhite;
+        this.isKilled = isKilled;
     }
     return ChessPiece;
 }());
@@ -44,13 +94,19 @@ var Field = /** @class */ (function () {
             this.chessPiece = chessPiece;
         }
         else {
-            console.log("Chesspiece fejler");
+            throw new Error('Something bad happened with Chesspiece class');
         }
     };
     Field.prototype.getChessPiece = function () {
         return this.chessPiece;
     };
-    Field.prototype.init = function (x, y, isBlack) {
+    Field.prototype.init = function () {
+        if (this.x === 0 && this.y === 0) {
+            this.setChessPiece(new Knight(this.isBlack, false));
+        }
+        if (this.y === 1) {
+            this.setChessPiece(new Pond(this.isBlack, false));
+        }
     };
     return Field;
 }());
@@ -64,18 +120,15 @@ var Game = /** @class */ (function () {
         this.board = new Board(this.context);
     }
     Game.prototype.setupGame = function () {
-    };
-    Game.prototype.render = function () {
-        var _a, _b;
         var boardPixelSize = 800;
         var boardSize = 8;
         this.width = this.canvas.width = boardPixelSize;
         this.height = this.canvas.height = boardPixelSize;
         //Create background for ui
         this.context.strokeStyle = "white";
-        (_a = this.context) === null || _a === void 0 ? void 0 : _a.rect(0, 0, this.width, this.height);
+        this.context.rect(0, 0, this.width, this.height);
         this.context.fillStyle = "black";
-        (_b = this.context) === null || _b === void 0 ? void 0 : _b.fill();
+        this.context.fill();
         var fields = [];
         for (var i = 0; i < boardSize; i++) {
             var row = [];
@@ -86,15 +139,44 @@ var Game = /** @class */ (function () {
         }
         this.board.createBoard(fields, boardPixelSize / boardSize);
     };
+    Game.prototype.render = function (fields) {
+    };
     Game.prototype.userInput = function () {
     };
     Game.prototype.startGame = function () {
-        console.log(this.board);
     };
     return Game;
 }());
-(function IFFE() {
+function start() {
     var game = new Game();
     game.startGame();
-    game.render();
-})();
+    var fields = game.setupGame();
+    game.render(fields);
+}
+window.onload = function () {
+    start();
+};
+var Knight = /** @class */ (function (_super) {
+    __extends(Knight, _super);
+    function Knight(isWhite, isKilled) {
+        return _super.call(this, isWhite, isKilled) || this;
+    }
+    Knight.prototype.canMove = function () { };
+    Knight.prototype.getImage = function () {
+        return "./assets/knight.png";
+    };
+    Knight.prototype.setWhite = function () { };
+    return Knight;
+}(ChessPiece));
+var Pond = /** @class */ (function (_super) {
+    __extends(Pond, _super);
+    function Pond(isWhite, isKilled) {
+        return _super.call(this, isWhite, isKilled) || this;
+    }
+    Pond.prototype.canMove = function () { };
+    Pond.prototype.getImage = function () {
+        return "./assets/pond.jpg";
+    };
+    Pond.prototype.setWhite = function () { };
+    return Pond;
+}(ChessPiece));

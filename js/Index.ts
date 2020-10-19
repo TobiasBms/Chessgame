@@ -1,5 +1,11 @@
-(function IFFE(){
+function start(){
     const game = new Game()
     game.startGame();
-    game.render();
-})() 
+    let fields = game.setupGame();
+    game.render(fields);
+}
+
+window.onload = function(){
+    start();
+};
+
