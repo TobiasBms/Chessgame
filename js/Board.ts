@@ -3,16 +3,14 @@ Painting and initializing the board.
 */ 
 class Board{
 
-    fields: [][] = [];
     context = null;
-
+    lastClick: Field;
     /*
         Context gets used through the 
-        methods to be able to interact with Canvas.
+        methods to be able to draw to the Canvas.
     */
     constructor(context){
         this.context = context;
-        
     }
 
     /*
@@ -23,6 +21,20 @@ class Board{
     createSquare(field: Field, fieldSize){
         this.drawBackground(field,fieldSize);
         this.drawImage(field,fieldSize);
+    }
+
+    boardClicked(fields, x,y, fieldSize){
+        
+        let tileW = 100;
+
+        let ratioX = x / tileW;
+        let ratioY = y / tileW;
+
+        let xFloored = Math.floor(ratioX);
+        let yFloored = Math.floor(ratioY);
+        
+        fields[xFloored][yFloored].removeChessPiece();
+
     }
 
     /*
@@ -61,27 +73,30 @@ class Board{
         }
 
         this.context.fillRect(field.x * fieldSize, field.y * fieldSize, fieldSize, fieldSize);
-
-    }
-
-
-    movePiece()
-    {
-
+    
     }
 
     /*
         Initialzing the board
     */
    
-    createBoard(fields, fieldSize){         
+    createBoard(fields, fieldSize)
+    {         
+        fields.forEach((row, idy) => {
+            row.forEach((field, idx) => {                          
+                field.setupPieces();
+            });
+        });
+
+    }
+
+    drawBoard(fields, fieldSize)
+    {
         fields.forEach((row, idy) => {
             let straightNumber = idy % 2 === 0;
 
             row.forEach((field, idx) => {          
-
                 field.isBlack = (straightNumber ? idx + 1 : idx) % 2 === 0;                
-                field.init();
                 this.createSquare(field,fieldSize);
             });
         });

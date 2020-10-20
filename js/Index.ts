@@ -1,8 +1,8 @@
 function start(){
     const game = new Game()
     game.startGame();
-    let fields = game.setupGame();
-    game.render(fields);
+    game.setupGame();
+    game.render();
 }
 
 window.onload = function(){

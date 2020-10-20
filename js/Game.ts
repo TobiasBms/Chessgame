@@ -6,20 +6,21 @@ class Game{
     context = null;
     board: Board;
     canvas = <HTMLCanvasElement>document.querySelector("#root");
-
+    boardPixelSize = 800;
+    boardRectsOnXAndY = 8;
     constructor(){
         
         this.context = this.canvas.getContext("2d");
-
-        this.board = new Board(this.context)
+        this.board = new Board(this.context)  
         
     }
     
     setupGame(){
-        let boardPixelSize = 800;
-        let boardSize = 8;
-        this.width = this.canvas.width = boardPixelSize;
-        this.height = this.canvas.height = boardPixelSize; 
+
+        let fieldSize = this.boardPixelSize / this.boardRectsOnXAndY
+
+        this.width = this.canvas.width = this.boardPixelSize;
+        this.height = this.canvas.height = this.boardPixelSize; 
 
         //Create background for ui
         this.context.strokeStyle = "white";
@@ -29,25 +30,37 @@ class Game{
         
         let fields = [];
 
-        for (let i = 0; i < boardSize; i++) {
+        for (let i = 0; i < this.boardRectsOnXAndY; i++) {
             let row = [];
-            for (let j = 0; j < boardSize; j++) {
+            for (let j = 0; j < this.boardRectsOnXAndY; j++) {
                 row.push(new Field(j,i));
             }
             
             fields.push(row);
         }  
-        
-        this.board.createBoard(fields, boardPixelSize / boardSize);
 
+        this.canvas.addEventListener('mousedown', (e) => {
+
+            let canvasX = e.offsetX; // Canvas clikced X cord
+            let canvasY = e.offsetY; // Canvas Clicked Y cord
+
+            this.board.boardClicked(fields,canvasY, canvasX, fieldSize);
+            this.board.drawBoard(fields, fieldSize);
+        });
+
+
+        this.board.createBoard(fields, fieldSize);
+        this.board.drawBoard(fields, fieldSize);
     }
 
-    render(fields){
+    render(){
         
     }
+
     
-    userInput(){
 
+    userInput(){
+    
     }
 
     startGame(){

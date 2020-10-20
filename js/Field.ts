@@ -23,13 +23,16 @@ class Field
         }
 
     }
+
+     
+
     
     getChessPiece() : ChessPiece 
     {
         return this.chessPiece
     }
 
-    init()
+    setupPieces()
     {
         if(this.x === 0 && this.y === 0){ 
             this.setChessPiece(new Knight(this.isBlack, false));
@@ -39,6 +42,13 @@ class Field
             this.setChessPiece(new Pond(this.isBlack, false));
         }
 
+    }
+
+    removeChessPiece()
+    {
+        this.chessPiece = null;
+        console.log([this.x, this.y]);
+        
     }
 
 }
