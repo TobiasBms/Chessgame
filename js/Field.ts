@@ -2,7 +2,7 @@
 class Field
 {
 
-    chessPiece: ChessPiece = null;
+    private chessPiece: ChessPiece = null;
     x: number;
     y: number;
     isBlack: boolean;

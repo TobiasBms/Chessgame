@@ -1,7 +1,5 @@
 class Pond extends ChessPiece{
     
-    
-
     constructor(isWhite: boolean, isKilled: boolean){
         super(isWhite, isKilled)
     }
@@ -13,7 +11,7 @@ class Pond extends ChessPiece{
     private canMoveForward(fromX,toX, fromY,toY, player: Player){
         
         if(player.isWhite()){
-                
+            
             if(fromX !== toX)
             {
                 console.log("1");
@@ -21,11 +19,18 @@ class Pond extends ChessPiece{
                 return false
             }
 
-            if(fromY + 1 !== toY && fromY + 2 !== toY){
-                console.log("2");   
-                return false
-            }
 
+            if(this.getMoveCount() === 0){
+                if(fromY + 1 !== toY && fromY + 2 !== toY){
+                    console.log("2");   
+                    return false
+                }
+            }else{
+                if(fromY + 1 !== toY){
+                    return false
+                }
+            }
+            
             return true;
             
         }else{
@@ -37,7 +42,7 @@ class Pond extends ChessPiece{
                 if(fromY - 1 !== toY){
                     return false
                 }
-
+                
                 if(fromY - 1 !== toY && fromY - 2 !== toY){  
                     return false
                 }
@@ -60,9 +65,6 @@ class Pond extends ChessPiece{
             
     }
 
-    move(x,y){
-
-    }
     
     getImage()
     {

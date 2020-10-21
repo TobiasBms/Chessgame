@@ -54,7 +54,7 @@ class Board{
         }else{
             console.log("Attempt to finish turn");
 
-            let isMoveValid = this.lastClick.chessPiece.validateMove(
+            let isMoveValid = this.lastClick.getChessPiece().validateMove(
                 this.lastClick.x,
                 this.lastClick.y, 
                 currentClick.x, 
@@ -64,6 +64,8 @@ class Board{
                 
             if(isMoveValid){
                 console.log("finish turn");
+                this.lastClick.getChessPiece().incrementMoveCount();
+                console.log(this.lastClick.getChessPiece().getMoveCount());
                 
                 currentClick.setChessPiece(this.lastClick.getChessPiece());
                 this.lastClick.removeChessPiece();
@@ -84,10 +86,10 @@ class Board{
     drawImage(field: Field, fieldSize)
     {
             
-        if(field.chessPiece !== null){
+        if(field.getChessPiece() !== null){
             
             let base_image = new Image();
-            base_image.src = field.chessPiece.getImage(); 
+            base_image.src = field.getChessPiece().getImage(); 
             
             base_image.onload = () => {
                 this.context.drawImage(base_image, field.x * fieldSize, field.y * fieldSize, fieldSize, fieldSize);

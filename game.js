@@ -44,9 +44,11 @@ var Board = /** @class */ (function () {
         }
         else {
             console.log("Attempt to finish turn");
-            var isMoveValid = this.lastClick.chessPiece.validateMove(this.lastClick.x, this.lastClick.y, currentClick.x, currentClick.y, new Player());
+            var isMoveValid = this.lastClick.getChessPiece().validateMove(this.lastClick.x, this.lastClick.y, currentClick.x, currentClick.y, new Player());
             if (isMoveValid) {
                 console.log("finish turn");
+                this.lastClick.getChessPiece().incrementMoveCount();
+                console.log(this.lastClick.getChessPiece().getMoveCount());
                 currentClick.setChessPiece(this.lastClick.getChessPiece());
                 this.lastClick.removeChessPiece();
                 this.lastClick = null;
@@ -61,9 +63,9 @@ var Board = /** @class */ (function () {
     */
     Board.prototype.drawImage = function (field, fieldSize) {
         var _this = this;
-        if (field.chessPiece !== null) {
+        if (field.getChessPiece() !== null) {
             var base_image_1 = new Image();
-            base_image_1.src = field.chessPiece.getImage();
+            base_image_1.src = field.getChessPiece().getImage();
             base_image_1.onload = function () {
                 _this.context.drawImage(base_image_1, field.x * fieldSize, field.y * fieldSize, fieldSize, fieldSize);
             };
@@ -108,7 +110,14 @@ var ChessPiece = /** @class */ (function () {
     function ChessPiece(isWhite, isKilled) {
         this.isWhite = isWhite;
         this.isKilled = isKilled;
+        this.moveCount = 0;
     }
+    ChessPiece.prototype.incrementMoveCount = function () {
+        this.moveCount++;
+    };
+    ChessPiece.prototype.getMoveCount = function () {
+        return this.moveCount;
+    };
     return ChessPiece;
 }());
 var Field = /** @class */ (function () {
@@ -245,9 +254,16 @@ var Pond = /** @class */ (function (_super) {
                 console.log("1");
                 return false;
             }
-            if (fromY + 1 !== toY && fromY + 2 !== toY) {
-                console.log("2");
-                return false;
+            if (this.getMoveCount() === 0) {
+                if (fromY + 1 !== toY && fromY + 2 !== toY) {
+                    console.log("2");
+                    return false;
+                }
+            }
+            else {
+                if (fromY + 1 !== toY) {
+                    return false;
+                }
             }
             return true;
         }
@@ -273,8 +289,6 @@ var Pond = /** @class */ (function (_super) {
 
         */
         return this.canMoveDiagonal(fromX, toX, fromY, toY, player) || this.canMoveForward(fromX, toX, fromY, toY, player);
-    };
-    Pond.prototype.move = function (x, y) {
     };
     Pond.prototype.getImage = function () {
         return "./assets/pond.jpg";
