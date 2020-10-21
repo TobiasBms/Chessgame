@@ -37,7 +37,20 @@ var Board = /** @class */ (function () {
         var ratioY = y / tileW;
         var xFloored = Math.floor(ratioX);
         var yFloored = Math.floor(ratioY);
-        fields[xFloored][yFloored].removeChessPiece();
+        /*if(fields[xFloored][yFloored].chessPiece instanceof Pond){
+            
+            fields[xFloored][yFloored].chessPiece.validateMove(this.lastClick.x, this.lastClick.y,yFloored, xFloored);
+            
+        }*/
+        var currentClick = fields[xFloored][yFloored];
+        if (!this.lastClick && currentClick.hasChessPiece()) {
+            this.lastClick = currentClick;
+        }
+        else {
+            currentClick.setChessPiece(this.lastClick.getChessPiece());
+            this.lastClick.removeChessPiece();
+            this.lastClick = null;
+        }
     };
     /*
         Paints a specific image to the field.
@@ -100,6 +113,12 @@ var Field = /** @class */ (function () {
         this.x = x;
         this.y = y;
     }
+    Field.prototype.hasChessPiece = function () {
+        if (this.chessPiece === null) {
+            return;
+        }
+        return this.chessPiece;
+    };
     Field.prototype.setChessPiece = function (chessPiece) {
         if (!this.chessPiece) {
             this.chessPiece = chessPiece;
@@ -116,6 +135,9 @@ var Field = /** @class */ (function () {
             this.setChessPiece(new Knight(this.isBlack, false));
         }
         if (this.y === 1) {
+            this.setChessPiece(new Pond(this.isBlack, false));
+        }
+        if (this.y === 6) {
             this.setChessPiece(new Pond(this.isBlack, false));
         }
     };
@@ -165,6 +187,10 @@ var Game = /** @class */ (function () {
     };
     Game.prototype.render = function () {
     };
+    Game.prototype.update = function () {
+        //If there has been made any changes apply thoese changes
+        console.log("Updated");
+    };
     Game.prototype.userInput = function () {
     };
     Game.prototype.startGame = function () {
@@ -185,7 +211,7 @@ var Knight = /** @class */ (function (_super) {
     function Knight(isWhite, isKilled) {
         return _super.call(this, isWhite, isKilled) || this;
     }
-    Knight.prototype.canMove = function () { };
+    Knight.prototype.validateMove = function () { };
     Knight.prototype.getImage = function () {
         return "./assets/knight.png";
     };
@@ -197,7 +223,20 @@ var Pond = /** @class */ (function (_super) {
     function Pond(isWhite, isKilled) {
         return _super.call(this, isWhite, isKilled) || this;
     }
-    Pond.prototype.canMove = function () { };
+    Pond.prototype.validateMove = function (fromX, fromY, toX, toY) {
+        /*
+            
+            The pond can only move 2 or 1 field forward.
+            If it's not the first move it can move 1 forward.
+            If there is a chessPiece diagonal then it may move diagonal 1 field.
+
+        */
+        if (fromX === toX || toY === fromY + 1) {
+            console.log("Valid move");
+        }
+    };
+    Pond.prototype.move = function (x, y) {
+    };
     Pond.prototype.getImage = function () {
         return "./assets/pond.jpg";
     };

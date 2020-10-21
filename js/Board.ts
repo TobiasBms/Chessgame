@@ -5,12 +5,16 @@ class Board{
 
     context = null;
     lastClick: Field;
+
     /*
         Context gets used through the 
         methods to be able to draw to the Canvas.
     */
-    constructor(context){
+    constructor(context)
+    {
+
         this.context = context;
+        
     }
 
     /*
@@ -18,12 +22,16 @@ class Board{
         on the board.
     */
 
-    createSquare(field: Field, fieldSize){
+    createSquare(field: Field, fieldSize)
+    {
+
         this.drawBackground(field,fieldSize);
         this.drawImage(field,fieldSize);
+
     }
 
-    boardClicked(fields, x,y, fieldSize){
+    boardClicked(fields, x,y, fieldSize)
+    {
         
         let tileW = 100;
 
@@ -33,17 +41,35 @@ class Board{
         let xFloored = Math.floor(ratioX);
         let yFloored = Math.floor(ratioY);
         
-        fields[xFloored][yFloored].removeChessPiece();
-
+        
+        /*if(fields[xFloored][yFloored].chessPiece instanceof Pond){
+            
+            fields[xFloored][yFloored].chessPiece.validateMove(this.lastClick.x, this.lastClick.y,yFloored, xFloored);
+            
+        }*/
+        
+        let currentClick = fields[xFloored][yFloored];
+        
+        if(!this.lastClick && currentClick.hasChessPiece())
+        {
+                
+                this.lastClick = currentClick;
+                
+        }else{
+            currentClick.setChessPiece(this.lastClick.getChessPiece());
+            this.lastClick.removeChessPiece();
+            this.lastClick = null;  
+        }
+        
     }
 
     /*
         Paints a specific image to the field. 
     */
 
-    drawImage(field: Field, fieldSize){
+    drawImage(field: Field, fieldSize)
+    {
             
-  
         if(field.chessPiece !== null){
             
             let base_image = new Image();
@@ -67,9 +93,13 @@ class Board{
         this.context.beginPath();
 
         if(field.isBlack){
+
             this.context.fillStyle = "#EAC89E";
+
         }else{
+
             this.context.fillStyle = "#263549";
+
         }
 
         this.context.fillRect(field.x * fieldSize, field.y * fieldSize, fieldSize, fieldSize);
@@ -82,23 +112,31 @@ class Board{
    
     createBoard(fields, fieldSize)
     {         
+        
         fields.forEach((row, idy) => {
+
             row.forEach((field, idx) => {                          
                 field.setupPieces();
             });
+
         });
 
     }
 
     drawBoard(fields, fieldSize)
     {
+      
         fields.forEach((row, idy) => {
+
             let straightNumber = idy % 2 === 0;
 
-            row.forEach((field, idx) => {          
+            row.forEach((field, idx) => {        
+
                 field.isBlack = (straightNumber ? idx + 1 : idx) % 2 === 0;                
                 this.createSquare(field,fieldSize);
+
             });
+
         });
 
     }

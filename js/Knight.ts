@@ -3,7 +3,7 @@ class Knight extends ChessPiece{
         super(isWhite, isKilled)
     }
 
-    canMove(){}
+    validateMove(){}
     
     getImage()
     {

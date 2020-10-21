@@ -13,6 +13,15 @@ class Field
         this.y = y;
     }
 
+    hasChessPiece(): ChessPiece
+    {
+        if(this.chessPiece === null){
+            return;
+        }
+        return this.chessPiece;
+    }
+
+
     setChessPiece(chessPiece: ChessPiece) 
     {
         
@@ -24,9 +33,6 @@ class Field
 
     }
 
-     
-
-    
     getChessPiece() : ChessPiece 
     {
         return this.chessPiece
@@ -39,6 +45,10 @@ class Field
         }
         
         if(this.y === 1){
+            this.setChessPiece(new Pond(this.isBlack, false));
+        }
+
+        if(this.y === 6){
             this.setChessPiece(new Pond(this.isBlack, false));
         }
 

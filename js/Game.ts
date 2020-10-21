@@ -46,6 +46,7 @@ class Game{
 
             this.board.boardClicked(fields,canvasY, canvasX, fieldSize);
             this.board.drawBoard(fields, fieldSize);
+
         });
 
 
@@ -53,7 +54,16 @@ class Game{
         this.board.drawBoard(fields, fieldSize);
     }
 
-    render(){
+    render()
+    {
+        
+    }
+
+
+    update()
+    {
+        //If there has been made any changes apply thoese changes
+        console.log("Updated");
         
     }
 
