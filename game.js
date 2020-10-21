@@ -37,19 +37,23 @@ var Board = /** @class */ (function () {
         var ratioY = y / tileW;
         var xFloored = Math.floor(ratioX);
         var yFloored = Math.floor(ratioY);
-        /*if(fields[xFloored][yFloored].chessPiece instanceof Pond){
-            
-            fields[xFloored][yFloored].chessPiece.validateMove(this.lastClick.x, this.lastClick.y,yFloored, xFloored);
-            
-        }*/
         var currentClick = fields[xFloored][yFloored];
         if (!this.lastClick && currentClick.hasChessPiece()) {
             this.lastClick = currentClick;
+            console.log("start turn");
         }
         else {
-            currentClick.setChessPiece(this.lastClick.getChessPiece());
-            this.lastClick.removeChessPiece();
-            this.lastClick = null;
+            console.log("Attempt to finish turn");
+            var isMoveValid = this.lastClick.chessPiece.validateMove(this.lastClick.x, this.lastClick.y, currentClick.x, currentClick.y, new Player());
+            if (isMoveValid) {
+                console.log("finish turn");
+                currentClick.setChessPiece(this.lastClick.getChessPiece());
+                this.lastClick.removeChessPiece();
+                this.lastClick = null;
+            }
+            else {
+                this.lastClick = null;
+            }
         }
     };
     /*
@@ -218,12 +222,49 @@ var Knight = /** @class */ (function (_super) {
     Knight.prototype.setWhite = function () { };
     return Knight;
 }(ChessPiece));
+var Player = /** @class */ (function () {
+    function Player() {
+        this._isWhite = true;
+    }
+    Player.prototype.isWhite = function () {
+        return this._isWhite;
+    };
+    return Player;
+}());
 var Pond = /** @class */ (function (_super) {
     __extends(Pond, _super);
     function Pond(isWhite, isKilled) {
         return _super.call(this, isWhite, isKilled) || this;
     }
-    Pond.prototype.validateMove = function (fromX, fromY, toX, toY) {
+    Pond.prototype.canMoveDiagonal = function (fromX, toX, fromY, toY, player) {
+        return ((fromY + 1 === toY && fromX + 1 === toX) || (fromY + 1 === toY && fromX - 1 === toX));
+    };
+    Pond.prototype.canMoveForward = function (fromX, toX, fromY, toY, player) {
+        if (player.isWhite()) {
+            if (fromX !== toX) {
+                console.log("1");
+                return false;
+            }
+            if (fromY + 1 !== toY && fromY + 2 !== toY) {
+                console.log("2");
+                return false;
+            }
+            return true;
+        }
+        else {
+            if (fromX !== toX) {
+                return false;
+            }
+            if (fromY - 1 !== toY) {
+                return false;
+            }
+            if (fromY - 1 !== toY && fromY - 2 !== toY) {
+                return false;
+            }
+            return true;
+        }
+    };
+    Pond.prototype.validateMove = function (fromX, fromY, toX, toY, player) {
         /*
             
             The pond can only move 2 or 1 field forward.
@@ -231,15 +272,14 @@ var Pond = /** @class */ (function (_super) {
             If there is a chessPiece diagonal then it may move diagonal 1 field.
 
         */
-        if (fromX === toX || toY === fromY + 1) {
-            console.log("Valid move");
-        }
+        return this.canMoveDiagonal(fromX, toX, fromY, toY, player) || this.canMoveForward(fromX, toX, fromY, toY, player);
     };
     Pond.prototype.move = function (x, y) {
     };
     Pond.prototype.getImage = function () {
         return "./assets/pond.jpg";
     };
-    Pond.prototype.setWhite = function () { };
+    Pond.prototype.setWhite = function () {
+    };
     return Pond;
 }(ChessPiece));

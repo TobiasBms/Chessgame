@@ -41,24 +41,38 @@ class Board{
         let xFloored = Math.floor(ratioX);
         let yFloored = Math.floor(ratioY);
         
-        
-        /*if(fields[xFloored][yFloored].chessPiece instanceof Pond){
-            
-            fields[xFloored][yFloored].chessPiece.validateMove(this.lastClick.x, this.lastClick.y,yFloored, xFloored);
-            
-        }*/
-        
         let currentClick = fields[xFloored][yFloored];
         
+
+            
         if(!this.lastClick && currentClick.hasChessPiece())
         {
-                
                 this.lastClick = currentClick;
+                console.log("start turn");
+                
                 
         }else{
-            currentClick.setChessPiece(this.lastClick.getChessPiece());
-            this.lastClick.removeChessPiece();
-            this.lastClick = null;  
+            console.log("Attempt to finish turn");
+
+            let isMoveValid = this.lastClick.chessPiece.validateMove(
+                this.lastClick.x,
+                this.lastClick.y, 
+                currentClick.x, 
+                currentClick.y,
+                new Player()
+                );
+                
+            if(isMoveValid){
+                console.log("finish turn");
+                
+                currentClick.setChessPiece(this.lastClick.getChessPiece());
+                this.lastClick.removeChessPiece();
+                this.lastClick = null;  
+
+            }else{
+                this.lastClick = null;  
+            }
+
         }
         
     }
