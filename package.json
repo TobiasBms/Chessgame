@@ -1,0 +1,29 @@
+{
+  "name": "Typescript",
+  "version": "1.0.0",
+  "description": "Commands: #Compile to game.js tsc --outFile game.js --sourceMap  js/*.ts --watch",
+  "main": "dist/game.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --outFile dist/game.js --watch --sourceMap  src/*.ts",
+    "dev": "npm run build --watch",
+    "lint": "eslint src --ext js,ts",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TobiasBms/Chessgame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TobiasBms/Chessgame/issues"
+  },
+  "homepage": "https://github.com/TobiasBms/Chessgame#readme",
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "typescript": "^4.1.2"
+  }
+}

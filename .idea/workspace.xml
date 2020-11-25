@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c28e309f-b5b9-4d74-9883-0578389cadf9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Typescript.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Field.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ImageCache.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/King.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Knight.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Player.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Queen.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Runner.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tower.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Validate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/knight.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/knight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pond.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pond.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Board.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/ChessPiece.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChessPiece.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Field.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Knight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Player.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Pond.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pond.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kTFFSlpaDxsg3lQcDr0V0265il" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Typescript/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c28e309f-b5b9-4d74-9883-0578389cadf9" name="Default Changelist" comment="" />
+      <created>1605716572072</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605716572072</updated>
+      <workItem from="1605716573802" duration="1634000" />
+      <workItem from="1605732008617" duration="444000" />
+      <workItem from="1605780258141" duration="14000" />
+      <workItem from="1606237602382" duration="16293000" />
+      <workItem from="1606291766047" duration="1780000" />
+      <workItem from="1606309493407" duration="10910000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="579" y="197" width="824" height="720" key="#TypeScript" timestamp="1606245360932">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="579" y="197" width="824" height="720" key="#TypeScript/72.27.1848.1053@72.27.1848.1053" timestamp="1606245360932" />
+    <state x="454" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605716610936">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="454" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1605716610936" />
+    <state x="804" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1606252620712">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="804" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1606252620712" />
+    <state x="720" y="311" key="FileChooserDialogImpl" timestamp="1605780270259">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="720" y="311" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1605780270259" />
+    <state x="467" y="162" width="1298" height="918" key="SettingsEditor" timestamp="1606310295616">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="467" y="162" width="1298" height="918" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1606310295616" />
+    <state x="725" y="284" width="540" height="524" key="StructurePopup" timestamp="1606251895093">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="725" y="284" width="540" height="524" key="StructurePopup/72.27.1848.1053@72.27.1848.1053" timestamp="1606251895093" />
+    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1606314528601">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1606314528601" />
+    <state x="663" y="272" width="711" height="622" key="find.popup" timestamp="1606313778507">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="663" y="272" width="711" height="622" key="find.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1606313778507" />
+    <state x="660" y="252" width="672" height="677" key="run.anything.popup" timestamp="1606311654662">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="660" y="252" width="672" height="677" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1606311654662" />
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1606316270556">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1606316270556" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/Pond.ts</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
