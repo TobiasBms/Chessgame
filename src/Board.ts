@@ -2,7 +2,6 @@
 Painting and initializing the board.
 */
 
-
 class Board {
   
   context: CanvasRenderingContext2D | null;
@@ -24,9 +23,22 @@ class Board {
   */
   
   createSquare(field: Field, fieldSize: number) {
-    
     this.drawBackground(field, fieldSize);
     this.drawImage(field, fieldSize);
+  
+  }
+  
+  getTile(fields: Field[][], x: number, y: number): Field {
+    let tileW = 100;
+  
+    let ratioX = x / tileW;
+    let ratioY = y / tileW;
+  
+    let xFloored = Math.floor(ratioX);
+    let yFloored = Math.floor(ratioY);
+    console.log(fields[xFloored][yFloored])
+    return fields[xFloored][yFloored]
+    
   }
   
   boardClicked(fields: Field[][], x: number, y: number) {
@@ -40,16 +52,10 @@ class Board {
     
     let currentClick = fields[xFloored][yFloored];
     
-    const validate = new Validate()
-    const currentTile = validate.getTile(xFloored, yFloored)
-    
-    this.drawBackground(currentTile, 75)
-    
     if (!this.lastClick && currentClick.hasChessPiece()) {
       this.lastClick = currentClick;
       console.log("start turn");
-      
-      
+
     } else {
       console.log("Attempt to finish turn");
       
@@ -58,7 +64,6 @@ class Board {
         this.lastClick.y,
         currentClick.x,
         currentClick.y,
-        //Fix this to take the right player and not a new player
         new Player(true),
         currentClick
       );
@@ -69,7 +74,6 @@ class Board {
           this.lastClick?.getChessPiece()?.incrementMoveCount();
           currentClick.setChessPiece(this.lastClick.getChessPiece());
           this.lastClick.removeChessPiece();
-          
         }
         this.lastClick = null;
         
@@ -80,7 +84,6 @@ class Board {
     }
     
   }
-  
   
   /*
       Paints a specific image to the field.
@@ -112,19 +115,23 @@ class Board {
       Paints the background color of the context square.
   */
   
-  drawBackground(field: Field, fieldSize: number) {
+  drawBackground(field: Field, fieldSize: number, clicked: boolean = false) {
     if (this.context) {
       this.context.beginPath();
+      
       if (field.isWhite) {
-        
         this.context.fillStyle = "#EAC89E";
         
       } else {
-        
+
         this.context.fillStyle = "#263549";
         
       }
       
+      if (clicked){
+        this.context.fillStyle = "green"
+      }
+    
       this.context.fillRect(field.x * fieldSize, field.y * fieldSize, fieldSize, fieldSize);
       
     }
@@ -135,13 +142,27 @@ class Board {
       Initialzing the board
   */
   
-  createBoard(fields: any[]) {
+  createBoard(fields: any[], players: Map<string, Player>) {
+    
+    const playerOne = players.get("playerOne")
+    const playerTwo = players.get("playerTwo")
+    
     fields.forEach((row: any[]) => {
       row.forEach((field) => {
         field.setupPieces();
+        if (playerOne && playerTwo){
+          if (field.getChessPiece() !== null && field.getChessPiece().isWhite){
+            playerOne.setPieces(field.getChessPiece())
+            
+            }
+          else if(field.getChessPiece() !== null && !(field.getChessPiece().isWhite)){
+            playerTwo.setPieces(field.getChessPiece())
+          }
+        }
+      
       });
+ 
     });
-    
   }
   
   
@@ -150,7 +171,6 @@ class Board {
       let straightNumber = idy % 2 === 0;
       
       row.forEach((field, idx) => {
-        
         field.isWhite = (straightNumber ? idx + 1 : idx) % 2 === 0;
         this.createSquare(field, fieldSize)
       });

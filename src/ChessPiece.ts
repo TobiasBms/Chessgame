@@ -10,7 +10,6 @@ abstract class ChessPiece {
         this.isWhite = isWhite
     }
     
-    
     abstract validateMove(fromX: number,fromY:number,toX:number,toY: number,player: Player, hasChesspiece: Field): boolean;
     abstract getImageString(isWhite: boolean): string;
     abstract setPlayer(player: Player): Player;
@@ -35,7 +34,5 @@ abstract class ChessPiece {
     getMoveCount(){
         return this.moveCount;
     }
-    
-    
 
 }
