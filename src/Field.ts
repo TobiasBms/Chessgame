@@ -4,6 +4,8 @@ class Field
     chessPiece: ChessPiece | null;
     x: number;
     y: number;
+    
+    //Fjern denne da det tjekkes på chesspiece
     isWhite: boolean;
 
     constructor(x: number, y: number)

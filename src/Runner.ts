@@ -9,6 +9,16 @@ class Runner extends ChessPiece{
     return "./assets/runnerBlack.png";
   }
   
+  
+  canMoveToPosition(fields: Field[][],x: number, y : number): boolean{
+    fields.forEach(row => {
+      row.forEach(field => {
+        console.log(field.hasChessPiece())
+      })
+    })
+    return true
+  }
+  
   setPlayer(player: Player): Player {
     return player;
   }

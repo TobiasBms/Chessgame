@@ -6,6 +6,7 @@ class Pond extends ChessPiece{
 
     setPlayer(player: Player){
         return player
+     
     }
     
     getType(): string {
@@ -23,9 +24,17 @@ class Pond extends ChessPiece{
         }
         
     }
-
+    
+    canMoveToPosition(fields: Field[][], x: number, y : number): boolean{
+      /*  fields.forEach(row => {
+            row.forEach(field => {
+                console.log(field.hasChessPiece())
+            })
+        })*/
+        return true
+    }
+    
     private canMoveForward(fromX:number,toX: number, fromY: number,toY: number, player: Player, field: Field){
-        console.log(field)
         if(player.isWhite()){
             
             if(fromX !== toX)
@@ -35,8 +44,8 @@ class Pond extends ChessPiece{
             }
             
             if(this.getMoveCount() === 0){
-                if(fromY + 1 !== toY && fromY + 2 !== toY){
-                    console.log("2");   
+                if(fromY + 1 !== toY &&  fromY + 2 !== toY){
+                    console.log("2");
                     return false
                 }
             }else{
@@ -74,17 +83,7 @@ class Pond extends ChessPiece{
 
     validateMove(fromX: number, fromY:number, toX:number,toY: number, player: Player, field: Field){
         
-        /*
-            
-            The pond can only move 2 or 1 field forward.
-            If it's not the first move it can move 1 forward.
-            If there is a chessPiece diagonal then it may move diagonal 1 field.
-
-        */
-        
-        return this.canMoveDiagonal(fromX,toX, fromY,toY, player,field) || this.canMoveForward(fromX, toX, fromY,toY, player, field) 
-
-        
+        return this.canMoveDiagonal(fromX,toX, fromY,toY, player,field) || this.canMoveForward(fromX, toX, fromY,toY, player, field)
             
     }
 
@@ -99,7 +98,4 @@ class Pond extends ChessPiece{
     
     }
 
-    setWhite(){
-        
-    }
 }

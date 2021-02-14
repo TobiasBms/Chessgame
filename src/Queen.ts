@@ -14,6 +14,16 @@ class Queen extends ChessPiece{
 
   }
   
+  
+  canMoveToPosition(fields: Field[][],x: number, y : number): boolean{
+    fields.forEach(row => {
+      row.forEach(field => {
+        return field
+      })
+    })
+    return true
+  }
+  
   setPlayer(player: Player): Player {
     return player;
   }

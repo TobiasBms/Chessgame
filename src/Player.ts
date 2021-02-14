@@ -15,7 +15,6 @@ class Player{
     }
     
     getPieces(){
-        console.log(this.chessPieces)
         return this.chessPieces
     }
     

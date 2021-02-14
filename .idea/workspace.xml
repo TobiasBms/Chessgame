@@ -20,17 +20,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c28e309f-b5b9-4d74-9883-0578389cadf9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/api-interfaces.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.eslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Typescript.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Typescript.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChessPiece.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChessPiece.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/King.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/King.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Knight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Knight.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Validate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Validate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pond.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pond.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Queen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Queen.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Runner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Runner.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,6 +60,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1kTFFSlpaDxsg3lQcDr0V0265il" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,15 +80,38 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$" />
+    <property name="run.prettier.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Typescript/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -85,7 +137,13 @@
       <workItem from="1606309493407" duration="15734000" />
       <workItem from="1606377978143" duration="5000" />
       <workItem from="1606398234284" duration="789000" />
-      <workItem from="1606402569740" duration="9403000" />
+      <workItem from="1606402569740" duration="13713000" />
+      <workItem from="1606493733620" duration="13956000" />
+      <workItem from="1606569461664" duration="67000" />
+      <workItem from="1606679152257" duration="515000" />
+      <workItem from="1606727128278" duration="5000" />
+      <workItem from="1613238058529" duration="2134000" />
+      <workItem from="1613330951680" duration="3792000" />
     </task>
     <servers />
   </component>
@@ -104,56 +162,8 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="579" y="197" width="824" height="720" key="#TypeScript" timestamp="1606245360932">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="579" y="197" width="824" height="720" key="#TypeScript/72.27.1848.1053@72.27.1848.1053" timestamp="1606245360932" />
-    <state x="454" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605716610936">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="454" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1605716610936" />
-    <state x="804" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1606252620712">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="804" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1606252620712" />
-    <state x="720" y="311" key="FileChooserDialogImpl" timestamp="1605780270259">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="720" y="311" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1605780270259" />
-    <state x="467" y="162" width="1298" height="918" key="SettingsEditor" timestamp="1606410261059">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="467" y="162" width="1298" height="918" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1606410261059" />
-    <state x="725" y="284" width="540" height="524" key="StructurePopup" timestamp="1606251895093">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="725" y="284" width="540" height="524" key="StructurePopup/72.27.1848.1053@72.27.1848.1053" timestamp="1606251895093" />
-    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1606325941809">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1606325941809" />
-    <state x="663" y="272" width="711" height="622" key="find.popup" timestamp="1606402879404">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="663" y="272" width="711" height="622" key="find.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1606402879404" />
-    <state x="660" y="252" width="672" height="677" key="run.anything.popup" timestamp="1606412783143">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="660" y="252" width="672" height="677" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1606412783143" />
-    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1606412031949">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="659" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1606412031949" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Pond.ts</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

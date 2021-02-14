@@ -29,28 +29,27 @@ class Board {
   }
   
   getTile(fields: Field[][], x: number, y: number): Field {
-    let tileW = 100;
+    const tileW = 100;
   
-    let ratioX = x / tileW;
-    let ratioY = y / tileW;
+    const ratioX = x / tileW;
+    const ratioY = y / tileW;
   
-    let xFloored = Math.floor(ratioX);
-    let yFloored = Math.floor(ratioY);
-    console.log(fields[xFloored][yFloored])
+    const xFloored = Math.floor(ratioX);
+    const yFloored = Math.floor(ratioY);
     return fields[xFloored][yFloored]
     
   }
   
   boardClicked(fields: Field[][], x: number, y: number) {
-    let tileW = 100;
+    const tileW = 100;
     
-    let ratioX = x / tileW;
-    let ratioY = y / tileW;
+    const ratioX = x / tileW;
+    const ratioY = y / tileW;
     
-    let xFloored = Math.floor(ratioX);
-    let yFloored = Math.floor(ratioY);
+    const xFloored = Math.floor(ratioX);
+    const yFloored = Math.floor(ratioY);
     
-    let currentClick = fields[xFloored][yFloored];
+    const currentClick = fields[xFloored][yFloored];
     
     if (!this.lastClick && currentClick.hasChessPiece()) {
       this.lastClick = currentClick;
@@ -59,7 +58,14 @@ class Board {
     } else {
       console.log("Attempt to finish turn");
       
-      let isMoveValid = this.lastClick?.getChessPiece()?.validateMove(
+      const chessPiecesNotInRange = this.lastClick?.getChessPiece()?.canMoveToPosition(fields,
+        this.lastClick.x,
+        currentClick.x,
+        this.lastClick.y,
+        currentClick.y
+      );
+    
+      const isMoveValid = this.lastClick?.getChessPiece()?.validateMove(
         this.lastClick.x,
         this.lastClick.y,
         currentClick.x,
@@ -68,7 +74,7 @@ class Board {
         currentClick
       );
       
-      if (isMoveValid) {
+      if (isMoveValid && chessPiecesNotInRange) {
         console.log("finish turn");
         if (this.lastClick) {
           this.lastClick?.getChessPiece()?.incrementMoveCount();
@@ -115,7 +121,7 @@ class Board {
       Paints the background color of the context square.
   */
   
-  drawBackground(field: Field, fieldSize: number, clicked: boolean = false) {
+  drawBackground(field: Field, fieldSize: number, clicked = false) {
     if (this.context) {
       this.context.beginPath();
       
@@ -129,7 +135,7 @@ class Board {
       }
       
       if (clicked){
-        this.context.fillStyle = "green"
+        this.context.fillStyle = "royalblue"
       }
     
       this.context.fillRect(field.x * fieldSize, field.y * fieldSize, fieldSize, fieldSize);
@@ -168,7 +174,7 @@ class Board {
   
   drawBoard(fields: Field[][], fieldSize: number) {
     fields.forEach((row: Field[], idy) => {
-      let straightNumber = idy % 2 === 0;
+      const straightNumber = idy % 2 === 0;
       
       row.forEach((field, idx) => {
         field.isWhite = (straightNumber ? idx + 1 : idx) % 2 === 0;

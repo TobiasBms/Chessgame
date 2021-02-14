@@ -11,9 +11,18 @@ class Knight extends ChessPiece{
         return "Knight";
     }
     
+    
+    canMoveToPosition(fields: Field[][], x: number, y : number): boolean{
+        fields.forEach(row => {
+            row.forEach(field => {
+                console.log(field.hasChessPiece())
+            })
+        })
+        return true
+    }
+    
     validateMove(fromX:number, fromY: number, toX: number,toY: number, player: Player , field: Field){
-        console.log(player)
-        let fieldChessPiece = field.getChessPiece();
+        const fieldChessPiece = field.getChessPiece();
         
         if(fieldChessPiece){
             
@@ -29,20 +38,17 @@ class Knight extends ChessPiece{
 
         } 
 
-        if(
-        (fromX + 1 !== toX || fromY + 2 !== toY) 
-        && (fromX - 1 !== toX || fromY + 2 !== toY) 
-        && (fromX + 1 !== toX ||fromY - 2 !== toY)
-        && (fromX - 2 !== toX || fromY - 1 !== toY)
-        && (fromX + 2 !== toX || fromY - 1 !== toY)
-        && (fromX - 1 !== toX || fromY - 2 !== toY)
-        && (fromX - 2 !== toX || fromY + 1 !== toY)
-        && (fromX + 2 !== toX || fromY + 1 !== toY)){    
-            return false;
-        }
+        return !((fromX + 1 !== toX || fromY + 2 !== toY)
+          && (fromX - 1 !== toX || fromY + 2 !== toY)
+          && (fromX + 1 !== toX || fromY - 2 !== toY)
+          && (fromX - 2 !== toX || fromY - 1 !== toY)
+          && (fromX + 2 !== toX || fromY - 1 !== toY)
+          && (fromX - 1 !== toX || fromY - 2 !== toY)
+          && (fromX - 2 !== toX || fromY + 1 !== toY)
+          && (fromX + 2 !== toX || fromY + 1 !== toY));
         
 
-        return true;
+        
     }
     
     getImageString(isWhite: boolean)
